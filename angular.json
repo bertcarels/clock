@@ -56,7 +56,6 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "https://railsstudent.github.io/ng-rxjs-30/day2-ng-and-css-clock/"
             },
             "development": {
               "buildOptimizer": false,
