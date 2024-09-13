@@ -17,6 +17,6 @@ import { ClockComponent } from './clock';
 })
 export class AppComponent {
   constructor(titleService: Title) {
-    titleService.setTitle('Day 2 NG and CSS Clock');
+    titleService.setTitle('Clock');
   }
 }
