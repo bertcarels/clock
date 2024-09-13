@@ -1,0 +1,36 @@
+
+
+<div class="clock" *ngIf="clockHandsTransform$ | async as clockHandsTransform">
+    <div class="dot"></div>
+    <div>
+      <div class="hour-hand" [style.transform]="clockHandsTransform.hourHandTransform"></div>
+      <div class="minute-hand" [style.transform]="clockHandsTransform.minuteHandTransform"></div>
+      <div class="second-hand" [style.transform]="clockHandsTransform.secondHandTransform"></div>
+    </div>
+    <div>
+        <span class="h1">1</span>
+        <span class="h2">2</span>
+        <span class="h3">3</span>
+        <span class="h4">4</span>
+        <span class="h5">5</span>
+      <span class="h6">6</span>
+      <span class="h7">7</span>
+      <span class="h8">8</span>
+      <span class="h9">9</span>
+      <span class="h10">10</span>
+      <span class="h11">11</span>
+      <span class="h12">12</span>
+    </div>
+    <!-- Render dial lines dynamically -->
+    <div *ngFor="let transform of dialLinesTransform" class="diallines" [style.transform]="transform"></div>
+  </div>
+  
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<span class="mytime"></span>
