@@ -1,0 +1,23 @@
+image: node:20.11.1
+
+pages:
+  cache:
+    paths:
+    - node_modules/
+
+  stage: deploy
+  script:
+  - npm install -g @angular/cli@17.2.0
+  - npm install
+  - ng build
+  - mkdir -p public
+  - mv dist/clock/* public/
+  - cd public
+  - ls -latR
+  artifacts:
+    paths:
+    - public
+  only:
+  - main
+  - pages
+
