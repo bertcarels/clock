@@ -2,9 +2,9 @@
 #
 # Before first use:
 #   1. In the repo: Settings > Pages > Build and deployment > Source > "GitHub Actions"
-#   2. Replace REPO_NAME below with this repo's actual name (the part after the slash
-#      in github.com/<user>/REPO_NAME). This becomes the base-href, e.g.
-#      https://<user>.github.io/REPO_NAME/
+#   2. Base href is "/" because Pages is served from the custom domain
+#      clock.kaboutersoft.be (root), not from https://<user>.github.io/clock/.
+#      If the custom domain is ever removed, switch back to --base-href=/clock/.
 #   3. Adjust the "mv" line below if your dist output folder name differs from "clock".
 
 name: Deploy to GitHub Pages
@@ -40,13 +40,13 @@ jobs:
         run: npm ci
 
       - name: Build (Angular)
-        # --base-href must match the repo name for a project (non-custom-domain) Pages site
-        run: npx ng build --base-href=/clock/
+        run: npx ng build --base-href=/
 
       - name: Prepare public folder
         run: |
           mkdir -p public
           mv dist/clock/* public/
+          echo "clock.kaboutersoft.be" > public/CNAME
           ls -latR public
 
       - name: Upload Pages artifact
